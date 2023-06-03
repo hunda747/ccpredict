@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  /* height: 100vh; */
+  text-align: center;
+  /* height: 100vh; */
+  height: calc(100vh - 100px);
+}
+
+.header {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+}
+
+.description {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.button {
+  padding: 1rem;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+}

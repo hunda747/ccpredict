@@ -1,0 +1,39 @@
+.root {
+  padding-top: 1rem;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.imageLeft {
+  width: 200px;
+  max-height: 400px;
+}
+
+.resultContainer {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.bulletPoint {
+  margin-bottom: 1rem;
+}
