@@ -11,6 +11,7 @@ import Container from "@material-ui/core/Container";
 import classes from "../styles/Hero.module.css";
 import { useRouter } from "next/router";
 import { CircularProgress } from "@material-ui/core";
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 // const theme = createMuiTheme();
 const theme = createTheme();
@@ -19,7 +20,7 @@ const HeroSection = () => {
   // const classes = useStyles();
   // const [selectedFile, setSelectedFile] = useState(null);
   const [probabilities, setProbabilities] = useState([]);
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState("");
   const [loader, setLoader] = useState(false);
   const router = useRouter();
 
@@ -57,16 +58,16 @@ const HeroSection = () => {
           // setProbabilities(data.probabilities);
           router.push({
             pathname: "/result",
-            query: { type: data.probabilities, image: ev.target.result},
+            query: { type: data.probabilities, image: ev.target.result },
           });
         })
         .catch((error) => {
           console.error(error);
-        }).finally(() => {
+        })
+        .finally(() => {
           setLoader(false);
         });
     };
-
 
     console.log("end");
   };
@@ -74,25 +75,43 @@ const HeroSection = () => {
   return (
     <div className={classes.root}>
       {/* <Container maxWidth="sm"> */}
-      <div className={classes.header}>Cervical Cancer Screening</div>
+      <div className={classes.header}>
+        Free Cervical Cancer Screening Predictor Using AI
+      </div>
       <div className={classes.description}>
         Upload an image to predict the type of cervical cancer.
       </div>
-      <Button
-        variant="contained"
-        color="primary"
-        component="label"
-        className={classes.button}
-        onChange={handleUpload}
-      >
-        Upload Image
-        <input type="file" onChange={(e) => handleUpload(e)} hidden />
-      </Button>
-      {
-        loader && (
-          <CircularProgress />
-        )
-      }
+      <div className={classes.content}>
+        <div className={classes.imageContainer}>
+          <img
+            src={"/type1.jpg"}
+            alt="Input Image"
+            className={classes.imageLeft}
+          />
+        </div>
+        <div className={classes.form}>
+          <Button
+            variant="contained"
+            color="primary"
+            component="label"
+            
+            onChange={handleUpload}
+            style={{
+              padding: "0.5rem 1rem",
+              margin: '0 3rem',
+              display: "flex",
+              justifyContent: "center",
+              alignItems: 'center',
+              gap: '1rem'
+            }}
+          >
+            <span><FileUploadIcon sx={{paddingRight: '10px'}}/></span> <span>Upload Image</span>
+            
+            <input type="file" onChange={(e) => handleUpload(e)} hidden />
+          </Button>
+        </div>
+      </div>
+      {loader && <CircularProgress />}
       {/* </Container> */}
     </div>
   );

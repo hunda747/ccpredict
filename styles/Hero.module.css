@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+
 .root {
   display: flex;
   flex-direction: column;
@@ -10,19 +14,41 @@
 }
 
 .header {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
-  font-size: 4rem;
+  font-size: 56px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .description {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   text-align: center;
 }
 
-.button {
-  padding: 1rem;
+.content{
+  display: flex;
+  justify-content: 'center';
+  align-items: center;
+  gap: 3rem;
+}
+
+.imageContainer{
+  width: 100%;
+}
+
+.form{
+  /* display: none; */
+  width: 100%;
+}
+
+.buttons {
+  padding: 1rem 2rem;
   min-width: 200px;
   display: flex;
   justify-content: center;
+}
+
+.content img{
+  height: 300px;
+  width: 400px;
 }
