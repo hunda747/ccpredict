@@ -9,37 +9,65 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import classes from "../styles/Hero.module.css";
+import { useRouter } from "next/router";
+import { CircularProgress } from "@material-ui/core";
 
 // const theme = createMuiTheme();
 const theme = createTheme();
 
 const HeroSection = () => {
   // const classes = useStyles();
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   const [probabilities, setProbabilities] = useState([]);
+  const [imageUrl, setImageUrl] = useState('');
+  const [loader, setLoader] = useState(false);
+  const router = useRouter();
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.preventDefault();
     console.log("upload");
+    // console.log(e.target);
+    // console.log(e.target.files[0]);
+    const selectedFile = e.target.files[0];
     if (!selectedFile) {
       console.log("no select file");
       return;
     }
+    console.log(selectedFile);
 
-    const formData = new FormData();
-    formData.append("image", selectedFile);
+    setLoader(true);
+    console.log("filessss");
+    let reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onload = function (ev) {
+      setImageUrl(ev.target.result);
+      // console.log(ev.target.result);
+      const url = ev.target.result;
 
-    fetch("/api/predict", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setProbabilities(data.probabilities);
+      const formData = new FormData();
+      formData.append("image", selectedFile);
+      // console.log('img',imageUrl);
+      fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // setProbabilities(data.probabilities);
+          router.push({
+            pathname: "/result",
+            query: { type: data.probabilities, image: ev.target.result},
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        }).finally(() => {
+          setLoader(false);
+        });
+    };
+
+
     console.log("end");
   };
 
@@ -58,8 +86,13 @@ const HeroSection = () => {
         onChange={handleUpload}
       >
         Upload Image
-        <input type="file" hidden />
+        <input type="file" onChange={(e) => handleUpload(e)} hidden />
       </Button>
+      {
+        loader && (
+          <CircularProgress />
+        )
+      }
       {/* </Container> */}
     </div>
   );
