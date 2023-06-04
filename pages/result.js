@@ -70,11 +70,11 @@ const ResultPage = () => {
       <div className={classes.root}>
         <Container maxWidth="lg">
           <div className={classes.all}>
-            <div>
-              <Typography variant="h4" component="h4" align="center">
-                Result Page
-              </Typography>
-            </div>
+            {/* <div> */}
+              {/* <Typography variant="h4" component="h4" align="center">
+                Result 
+              </Typography> */}
+            {/* </div> */}
             <div className={classes.content}>
               <div className={classes.imageContainer}>
                 <img
@@ -93,12 +93,13 @@ const ResultPage = () => {
                   Result:
                 </Typography> */}
                 <Typography variant="h4" gutterBottom>
-                  Type {type}
+                  <span className={classes.textTag }>Type {type}</span>
+                  
                 </Typography>
                 <Typography variant="h6" gutterBottom>
                   Characteristics:
                 </Typography>
-                <ul>
+                <ul className={classes.checklist}>
                   { type === '1' && type1notes.map((characteristic, index) => (
                     <li key={index} className={classes.bulletPoint}>
                       {characteristic}
@@ -117,7 +118,9 @@ const ResultPage = () => {
                 </ul>
               </div>
             </div>
-            <div>
+          </div>
+        </Container>
+            <div className={classes.warningNote}>
               <p>
                 These results are for informational purposes only and should not
                 be used as a standalone basis for medical decisions. Diagnostic
@@ -127,8 +130,6 @@ const ResultPage = () => {
                 care.
               </p>
             </div>
-          </div>
-        </Container>
       </div>
     </>
   );

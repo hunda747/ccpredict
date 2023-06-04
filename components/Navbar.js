@@ -1,26 +1,21 @@
 import React from "react";
+import classes from "../styles/navbar.module.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar__logo">
+    <>
+     <nav className={classes.navbar}>
+      <div className={classes.menu}>
+        <ul >
+       <div className={classes.navbar__logo}>
         <img src="/logo.png" alt="Logo" />
       </div>
-      <style jsx>{`
-        .navbar {
-          // background-color: #333;
-          // color: #fff;
-          padding: 10px;
-          display: "flex";
-          justifycontent: "center";
-        }
-
-        .navbar__logo img {
-          width: 100px;
-          height: auto;
-        }
-      `}</style>
+           <li>home</li>
+           <li>about</li>
+         </ul>
+       </div>
     </nav>
+    </>
   );
 };
 
