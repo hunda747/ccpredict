@@ -7,7 +7,7 @@ const Navbar = () => {
     <>
       <nav className={classes.navbar}>
         <div className={classes.navbar__logo}>
-          <img src="/logo.png" alt="Logo" />
+          {/* <img src="/logo.png" alt="Logo" /> */}
           <span>CCP</span>
         </div>
         <div className={classes.menu}>

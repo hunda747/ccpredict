@@ -4,4 +4,7 @@
   padding: 0;
   margin: 0;
   font-family: "DM Sans", sans-serif;
+  background-color: #10101a;
+  /* background-color: black; */
+  color: white;
 }

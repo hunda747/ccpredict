@@ -36,7 +36,7 @@ const type3notes = [
 const ResultPage = () => {
   const router = useRouter();
   const { type, image } = router.query;
-  console.log('data', type);
+  console.log("data", type);
   // console.log('data', image);
   // const classes = useStyles();
   const [probabilities, setProbabilities] = useState([]);
@@ -46,7 +46,7 @@ const ResultPage = () => {
 
   const handlePredict = () => {
     console.log("Predict clicked");
-    
+
     const formData = new FormData();
     formData.append("image", selectedFile);
 
@@ -62,7 +62,7 @@ const ResultPage = () => {
       .catch((error) => {
         console.error(error);
       });
-  }
+  };
 
   return (
     <>
@@ -71,7 +71,7 @@ const ResultPage = () => {
         <Container maxWidth="lg">
           <div className={classes.all}>
             {/* <div> */}
-              {/* <Typography variant="h4" component="h4" align="center">
+            {/* <Typography variant="h4" component="h4" align="center">
                 Result 
               </Typography> */}
             {/* </div> */}
@@ -93,43 +93,44 @@ const ResultPage = () => {
                   Result:
                 </Typography> */}
                 <Typography variant="h4" gutterBottom>
-                  <span className={classes.textTag }>Type {type}</span>
-                  
+                  <span className={classes.textTag}>Type {type}</span>
                 </Typography>
                 <Typography variant="h6" gutterBottom>
                   Characteristics:
                 </Typography>
                 <ul className={classes.checklist}>
-                  { type === '1' && type1notes.map((characteristic, index) => (
-                    <li key={index} className={classes.bulletPoint}>
-                      {characteristic}
-                    </li>
-                  ))}
-                  { type === '2' && type2notes.map((characteristic, index) => (
-                    <li key={index} className={classes.bulletPoint}>
-                      {characteristic}
-                    </li>
-                  ))}
-                  { type === '3' && type3notes.map((characteristic, index) => (
-                    <li key={index} className={classes.bulletPoint}>
-                      {characteristic}
-                    </li>
-                  ))}
+                  {type === "1" &&
+                    type1notes.map((characteristic, index) => (
+                      <li key={index} className={classes.bulletPoint}>
+                        {characteristic}
+                      </li>
+                    ))}
+                  {type === "2" &&
+                    type2notes.map((characteristic, index) => (
+                      <li key={index} className={classes.bulletPoint}>
+                        {characteristic}
+                      </li>
+                    ))}
+                  {type === "3" &&
+                    type3notes.map((characteristic, index) => (
+                      <li key={index} className={classes.bulletPoint}>
+                        {characteristic}
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
           </div>
         </Container>
-            <div className={classes.warningNote}>
-              <p>
-                These results are for informational purposes only and should not
-                be used as a standalone basis for medical decisions. Diagnostic
-                tests and expert medical guidance are essential for accurate
-                diagnosis and appropriate treatment. Use these predictions as a
-                supplementary tool, not a substitute for professional medical
-                care.
-              </p>
-            </div>
+        <div className={classes.warningNote}>
+          <p>
+            These results are for informational purposes only and should not be
+            used as a standalone basis for medical decisions. Diagnostic tests
+            and expert medical guidance are essential for accurate diagnosis and
+            appropriate treatment. Use these predictions as a supplementary
+            tool, not a substitute for professional medical care.
+          </p>
+        </div>
       </div>
     </>
   );

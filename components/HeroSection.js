@@ -11,8 +11,8 @@ import Container from "@material-ui/core/Container";
 import classes from "../styles/Hero.module.css";
 import { useRouter } from "next/router";
 import { CircularProgress } from "@material-ui/core";
-import FileUploadIcon from '@mui/icons-material/FileUpload';
-
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import InfoIcon from "@mui/icons-material/Info";
 // const theme = createMuiTheme();
 const theme = createTheme();
 
@@ -76,15 +76,19 @@ const HeroSection = () => {
     <div className={classes.root}>
       {/* <Container maxWidth="sm"> */}
       <div className={classes.header}>
-        Free Cervical Cancer Screening Predictor Using AI
+        Cervical <span className={classes.colring}>Cancer</span> likelihood with
+        cervix <span className={classes.colring}>type</span> predictor using{" "}
+        <span className={classes.colring}>AI</span>
       </div>
       <div className={classes.description}>
-        Upload an image to predict the type of cervical cancer.
+        Please <span className={classes.colring}>Upload</span> cervix colposcopy{" "}
+        <span className={classes.colring}>image</span> below to predict the
+        cervical cancer likelihood and the type of cervix.
       </div>
       <div className={classes.content}>
         <div className={classes.imageContainer}>
           <img
-            src={"/type1.jpg"}
+            src={"/ai.png"}
             alt="Input Image"
             className={classes.imageLeft}
           />
@@ -92,27 +96,45 @@ const HeroSection = () => {
         <div className={classes.form}>
           <Button
             variant="contained"
-            color="primary"
+            color="success"
             component="label"
-            
             onChange={handleUpload}
             style={{
               padding: "0.5rem 1rem",
-              margin: '0 3rem',
+              margin: "0 3rem",
               display: "flex",
               justifyContent: "center",
-              alignItems: 'center',
-              gap: '1rem'
+              alignItems: "center",
+              gap: "1rem",
             }}
+            className={classes.buttonM}
           >
-            <span><FileUploadIcon sx={{paddingRight: '10px'}}/></span> <span>Upload Image</span>
-            
+            {/* <FileUploadIcon
+              sx={{ paddingRight: "10px", background: "white", color: "black" }}
+            /> */}
+            <span className={classes.uploads}>Upload Image</span>
             <input type="file" onChange={(e) => handleUpload(e)} hidden />
           </Button>
+          <div>
+            <div className={classes.info}>
+              <div>
+                <InfoIcon fontSize="small" />
+              </div>
+              <div>
+                Please <span className={classes.colring}>upload</span> an
+                appropriate image that provides a clear view of the cervix.
+                Please ensure that the image specifically represents a
+                colposcopy image. Do not upload any other type of image, as this
+                model is specifically designed for cervical cancer prediction
+                using colposcopy images
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {loader && <CircularProgress />}
       {/* </Container> */}
+      <div className={classes.notes}></div>
     </div>
   );
 };
