@@ -32,11 +32,11 @@
 
 .content {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: "center";
   align-items: center;
-  gap: 1rem;
-  margin: 1rem 4rem;
+  gap: 0rem;
+  margin: 3rem 10rem;
 }
 
 .imageContainer {

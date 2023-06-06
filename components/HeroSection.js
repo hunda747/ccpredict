@@ -76,7 +76,7 @@ const HeroSection = () => {
     <div className={classes.root}>
       {/* <Container maxWidth="sm"> */}
       <div className={classes.header}>
-        Cervical <span className={classes.colring}>Cancer</span> likelihood with
+        <span className={classes.colring}>Cervical Cancer</span> likelihood with
         cervix <span className={classes.colring}>type</span> predictor using{" "}
         <span className={classes.colring}>AI</span>
       </div>
@@ -88,7 +88,7 @@ const HeroSection = () => {
       <div className={classes.content}>
         <div className={classes.imageContainer}>
           <img
-            src={"/ai.png"}
+            src={"/air.png"}
             alt="Input Image"
             className={classes.imageLeft}
           />
@@ -121,12 +121,11 @@ const HeroSection = () => {
                 <InfoIcon fontSize="small" />
               </div>
               <div>
-                Please <span className={classes.colring}>upload</span> an
-                appropriate image that provides a clear view of the cervix.
-                Please ensure that the image specifically represents a
-                colposcopy image. Do not upload any other type of image, as this
-                model is specifically designed for cervical cancer prediction
-                using colposcopy images
+                Please upload an appropriate image that provides a clear view of
+                the cervix. Please ensure that the image specifically represents
+                a colposcopy image. Do not upload any other type of image, as
+                this model is specifically designed for cervical cancer
+                prediction using colposcopy images
               </div>
             </div>
           </div>
