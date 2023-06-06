@@ -6,32 +6,33 @@ import Grid from "@material-ui/core/Grid";
 import Navbar from "../components/Navbar";
 import classes from "../styles/result.module.css";
 import { useRouter } from "next/router";
+import InfoIcon from "@mui/icons-material/Info";
 
 const type1notes = [
   "Presence of abnormal cells in the cervical tissue with mild dysplasia.",
   "Low-grade squamous intraepithelial lesion (LSIL).",
   "Minimal risk of progression to invasive cancer.",
   "Regular monitoring and follow-up recommended.",
-  "Mild changes in cervical tissue appearance.",
-  "Presence of low-grade abnormalities in Pap smear results.",
-  "Usually asymptomatic or may cause mild, non-specific symptoms.",
+  // "Mild changes in cervical tissue appearance.",
+  // "Presence of low-grade abnormalities in Pap smear results.",
+  // "Usually asymptomatic or may cause mild, non-specific symptoms.",
 ];
 const type2notes = [
   "Presence of moderate to severe dysplasia in the cervical tissue.",
   "High-grade squamous intraepithelial lesion (HSIL).",
   "Increased risk of progression to invasive cancer.",
   "Further diagnostic tests and treatment options should be considered.",
-  " severe changes in cervical tissue appearance.",
-  "Presence of high-grade abnormalities in Pap smear results.",
+  // " severe changes in cervical tissue appearance.",
+  // "Presence of high-grade abnormalities in Pap smear results.",
 ];
 const type3notes = [
   "Presence of severe dysplasia or carcinoma in situ in the cervical tissue.",
   "Carcinoma in situ (CIS) refers to the presence of cancer cells that are confined to the surface layer of the cervix.",
   "High risk of progression to invasive cancer.",
   "Prompt treatment and close monitoring are essential.",
-  "Severe changes in cervical tissue appearance.",
-  "Presence of carcinoma in situ (CIS) cells.",
-  "More pronounced symptoms such as abnormal vaginal bleeding (including post-menopausal bleeding), persistent pelvic pain, heavy or prolonged periods, and pain during sexual intercourse.",
+  // "Severe changes in cervical tissue appearance.",
+  // "Presence of carcinoma in situ (CIS) cells.",
+  // "More pronounced symptoms such as abnormal vaginal bleeding (including post-menopausal bleeding), persistent pelvic pain, heavy or prolonged periods, and pain during sexual intercourse.",
 ];
 const ResultPage = () => {
   const router = useRouter();
@@ -70,11 +71,12 @@ const ResultPage = () => {
       <div className={classes.root}>
         <Container maxWidth="lg">
           <div className={classes.all}>
-            {/* <div> */}
+            <div className={classes.titleF}>
             {/* <Typography variant="h4" component="h4" align="center">
                 Result 
               </Typography> */}
-            {/* </div> */}
+              cervical <span className={classes.colring}>cancer</span>  likelihood 
+            </div>
             <div className={classes.content}>
               <div className={classes.imageContainer}>
                 <img
@@ -89,14 +91,14 @@ const ResultPage = () => {
                 /> */}
               </div>
               <div className={classes.resultContainer}>
-                {/* <Typography variant="h6" gutterBottom>
-                  Result:
-                </Typography> */}
+                <Typography variant="h6" gutterBottom>
+                Cervix type :
+                </Typography>
                 <Typography variant="h4" gutterBottom>
                   <span className={classes.textTag}>Type {type}</span>
                 </Typography>
                 <Typography variant="h6" gutterBottom>
-                  Characteristics:
+                  <span className={classes.colring}>Characteristics</span> :
                 </Typography>
                 <ul className={classes.checklist}>
                   {type === "1" &&
@@ -123,6 +125,9 @@ const ResultPage = () => {
           </div>
         </Container>
         <div className={classes.warningNote}>
+          <div className={classes.infoicon}>
+            <InfoIcon fontSize="small" />
+          </div>
           <p>
             These results are for informational purposes only and should not be
             used as a standalone basis for medical decisions. Diagnostic tests
