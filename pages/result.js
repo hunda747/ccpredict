@@ -36,8 +36,9 @@ const type3notes = [
 ];
 const ResultPage = () => {
   const router = useRouter();
-  const { type, image } = router.query;
+  const { type, image, type1, type2, type3 } = router.query;
   console.log("data", type);
+  console.log('1', type1);
   // console.log('data', image);
   // const classes = useStyles();
   const [probabilities, setProbabilities] = useState([]);
@@ -64,6 +65,10 @@ const ResultPage = () => {
         console.error(error);
       });
   };
+
+  const pers = (num) => {
+    return Math.round(num*100)
+  }
 
   return (
     <>
@@ -95,7 +100,7 @@ const ResultPage = () => {
                 Cervix type :
                 </Typography>
                 <Typography variant="h4" gutterBottom>
-                  <span className={classes.textTag}>Type {type}</span>
+                  <span className={classes.textTag}>Type {type}</span> <span className={classes.persentage}>{type === '1' ? pers(type1) : type === '2' ? pers(type2) : pers(type3)} % probability</span>
                 </Typography>
                 <Typography variant="h6" gutterBottom>
                   <span className={classes.colring}>Characteristics</span> :
