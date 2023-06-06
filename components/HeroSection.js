@@ -10,9 +10,10 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import classes from "../styles/Hero.module.css";
 import { useRouter } from "next/router";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress, Snackbar } from "@material-ui/core";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import InfoIcon from "@mui/icons-material/Info";
+import { Alert } from "@mui/material";
 // const theme = createMuiTheme();
 const theme = createTheme();
 
@@ -23,6 +24,14 @@ const HeroSection = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [loader, setLoader] = useState(false);
   const router = useRouter();
+
+  const [open, setOpen] = useState(false);
+  const vertical = "top";
+  const horizontal = "center";
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -63,6 +72,7 @@ const HeroSection = () => {
         })
         .catch((error) => {
           console.error(error);
+          setOpen(true);
         })
         .finally(() => {
           setLoader(false);
@@ -74,6 +84,21 @@ const HeroSection = () => {
 
   return (
     <div className={classes.root}>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          className={classes.bigMessage}
+          severity={"error"}
+          sx={{ width: "100%" }}
+        >
+          <span>Network Error, Please try again later</span>
+        </Alert>
+      </Snackbar>
       {/* <Container maxWidth="sm"> */}
       <div className={classes.header}>
         <span className={classes.colring}>Cervical Cancer</span> likelihood with
@@ -94,27 +119,35 @@ const HeroSection = () => {
           />
         </div>
         <div className={classes.form}>
-          <Button
-            variant="contained"
-            color="success"
-            component="label"
-            onChange={handleUpload}
-            style={{
-              padding: "0.5rem 1rem",
-              margin: "0 3rem",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-            className={classes.buttonM}
-          >
-            {/* <FileUploadIcon
-              sx={{ paddingRight: "10px", background: "white", color: "black" }}
-            /> */}
-            <span className={classes.uploads}>Upload Image</span>
-            <input type="file" onChange={(e) => handleUpload(e)} hidden />
-          </Button>
+          {loader ? (
+            <CircularProgress />
+          ) : (
+            <Button
+              variant="contained"
+              // color="primary"
+              component="label"
+              onChange={handleUpload}
+              style={{
+                padding: "0.5rem 1rem",
+                margin: "0 3rem",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+              className={classes.buttonM}
+            >
+              {/* <FileUploadIcon
+                sx={{
+                  paddingRight: "10px",
+                  background: "white",
+                  color: "black",
+                }}
+              /> */}
+              <span className={classes.uploads}>Upload Image</span>
+              <input type="file" onChange={(e) => handleUpload(e)} hidden />
+            </Button>
+          )}
           <div>
             <div className={classes.info}>
               <div>
@@ -131,7 +164,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      {loader && <CircularProgress />}
+      {/* {loader && <CircularProgress />} */}
       {/* </Container> */}
       <div className={classes.notes}></div>
     </div>

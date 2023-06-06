@@ -1,26 +1,35 @@
-.navbar{
+.navbar {
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar__logo{
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.navbar__logo {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.navbar__logo img{
+.navbar__logo img {
   height: 100px;
   width: auto;
 }
 
-.navbar__logo span{
+.navbar__logo span {
   font-size: 30px;
 }
 
-.menu{
+.menu {
   display: flex;
   justify-content: right;
   gap: 2rem;

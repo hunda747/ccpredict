@@ -16,7 +16,7 @@ const Navbar = () => {
            <li>about</li>
          </ul> */}
           <div>Home</div>
-          <div>About</div>
+          {/* <div>About</div> */}
         </div>
       </nav>
     </>

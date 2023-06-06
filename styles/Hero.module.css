@@ -12,6 +12,32 @@
   margin: 0 1rem;
 }
 
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  /* height: 100vh; */
+  text-align: center;
+  /* height: 100vh; */
+  height: calc(100vh - 100px);
+  margin: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    /* height: 100vh; */
+    text-align: center;
+    /* height: 100vh; */
+    height: 100%;
+    margin: 0 1rem;
+  }
+}
+
 .colring {
   color: #6495ed;
   /* color: #008080; */
@@ -24,10 +50,27 @@
   font-family: "Oswald", sans-serif;
 }
 
+@media (max-width: 768px) {
+  .header {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 35px;
+    font-family: "Oswald", sans-serif;
+  }
+}
+
 .description {
   margin-bottom: 1rem;
   text-align: center;
   font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .description {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 14px;
+  }
 }
 
 .content {
@@ -37,6 +80,28 @@
   align-items: center;
   gap: 0rem;
   margin: 3rem 10rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: "center";
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 1rem;
+  }
+}
+
+.bigMessage {
+  /* font-size: 22px; */
+  /* padding: 1.8rem; */
+  font-weight: bold;
+  /* color: red; */
+  /* background: white; */
+}
+.bigMessage span {
+  color: red;
 }
 
 .imageContainer {
@@ -65,13 +130,35 @@
   margin: 0 5rem;
 }
 
+.info {
+  font-size: 14px;
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  gap: 3px;
+  /* width: 50%; */
+  margin: 0 5rem;
+}
+@media (max-width: 768px) {
+  .info {
+    font-size: 14px;
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    gap: 3px;
+    /* width: 50%; */
+    margin: 0 1rem;
+  }
+}
+
 .buttonM {
+  background: #6495ed;
   /* display: none; */
   /* display: contents; */
   /* background: white; */
 }
 .form span {
-  /* background: white; */
+  background: white;
   color: black;
   display: contents;
   font-size: 18px;
@@ -87,6 +174,13 @@
 .content img {
   height: 300px;
   width: 300px;
+}
+
+@media (max-width: 768px) {
+  .content img {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 .notes {
