@@ -5,7 +5,7 @@ import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Navbar />
       {/* <nav>
         <h1>Navbar</h1>
