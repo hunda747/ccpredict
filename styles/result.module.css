@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.persentage{
+  font-size: 16px;
+}
+
 .imageLeft {
   /* width: 100%; */
   width: 350px;

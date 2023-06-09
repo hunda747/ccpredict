@@ -67,7 +67,13 @@ const HeroSection = () => {
           // setProbabilities(data.probabilities);
           router.push({
             pathname: "/result",
-            query: { type: data.probabilities, image: ev.target.result },
+            query: {
+              type: data.probabilities,
+              type1: data.type1,
+              type2: data.type2,
+              type3: data.type3,
+              image: ev.target.result,
+            },
           });
         })
         .catch((error) => {
