@@ -107,10 +107,14 @@ const HeroSection = () => {
       </Snackbar>
       {/* <Container maxWidth="sm"> */}
       <div className={classes.header}>
+      <span className={classes.colring}>Cervical Cancer</span> likelihood with the Cancer type predictor using {" "}
+        <span className={classes.colring}>AI</span>
+      </div>
+      {/* <div className={classes.header}>
         <span className={classes.colring}>Cervical Cancer</span> likelihood with
         cervix <span className={classes.colring}>type</span> predictor using{" "}
         <span className={classes.colring}>AI</span>
-      </div>
+      </div> */}
       <div className={classes.description}>
         Please <span className={classes.colring}>Upload</span> cervix colposcopy{" "}
         <span className={classes.colring}>image</span> below to predict the
