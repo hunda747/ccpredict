@@ -102,9 +102,9 @@ const ResultPage = () => {
                 <Typography variant="h4" gutterBottom>
                   <span className={classes.textTag}>Type {type}</span>
                    <span className={classes.persentage}>
-                    {/* {type === '1' ? pers(type1) : type === '2' ? 
-                    pers(type2) : pers(type3)} */}
-                   91% probability
+                    {type === '1' ? pers(type1) : type === '2' ? 
+                    pers(type2) : pers(type3)}% probability
+                   {/* 91% probability */}
                    </span>
                 </Typography>
                 <Typography variant="h6" gutterBottom>
