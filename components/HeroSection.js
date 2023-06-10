@@ -106,69 +106,68 @@ const HeroSection = () => {
         </Alert>
       </Snackbar>
       {/* <Container maxWidth="sm"> */}
-      <div className={classes.header}>
-      <span className={classes.colring}>Cervical Cancer</span> likelihood with the Cancer type predictor using {" "}
-        <span className={classes.colring}>AI</span>
-      </div>
-      {/* <div className={classes.header}>
-        <span className={classes.colring}>Cervical Cancer</span> likelihood with
-        cervix <span className={classes.colring}>type</span> predictor using{" "}
-        <span className={classes.colring}>AI</span>
-      </div> */}
-      <div className={classes.description}>
-        Please <span className={classes.colring}>Upload</span> cervix colposcopy{" "}
-        <span className={classes.colring}>image</span> below to predict the
-        cervical cancer likelihood and the type of cervix.
-      </div>
-      <div className={classes.content}>
-        <div className={classes.imageContainer}>
-          <img
-            src={"/air.png"}
-            alt="Input Image"
-            className={classes.imageLeft}
-          />
+      <div className={classes.wrapper}>
+        <div className={classes.header}>
+          <span className={classes.colring}>Cervical Cancer</span> likelihood
+          {/* with cervix <span className={classes.colring}>type</span>  */}{" "}
+          predictor using <span className={classes.colring}>AI</span>
         </div>
-        <div className={classes.form}>
-          {loader ? (
-            <CircularProgress />
-          ) : (
-            <Button
-              variant="contained"
-              // color="primary"
-              component="label"
-              onChange={handleUpload}
-              style={{
-                padding: "0.5rem 1rem",
-                margin: "0 3rem",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "1rem",
-              }}
-              className={classes.buttonM}
-            >
-              {/* <FileUploadIcon
+        <div className={classes.description}>
+          Please <span className={classes.colring}>Upload</span> cervix
+          colposcopy <span className={classes.colring}>image</span> below to
+          predict the cervical cancer likelihood
+          {/* and the type of cervix. */}
+        </div>
+        <div className={classes.content}>
+          <div className={classes.imageContainer}>
+            <img
+              src={"/air.png"}
+              alt="Input Image"
+              className={classes.imageLeft}
+            />
+          </div>
+          <div className={classes.form}>
+            {loader ? (
+              <CircularProgress />
+            ) : (
+              <Button
+                variant="contained"
+                // color="primary"
+                component="label"
+                onChange={handleUpload}
+                style={{
+                  padding: "0.5rem 1rem",
+                  margin: "0 3rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "1rem",
+                }}
+                className={classes.buttonM}
+              >
+                {/* <FileUploadIcon
                 sx={{
                   paddingRight: "10px",
                   background: "white",
                   color: "black",
                 }}
               /> */}
-              <span className={classes.uploads}>Upload Image</span>
-              <input type="file" onChange={(e) => handleUpload(e)} hidden />
-            </Button>
-          )}
-          <div>
-            <div className={classes.info}>
-              <div>
-                <InfoIcon fontSize="small" />
-              </div>
-              <div>
-                Please upload an appropriate image that provides a clear view of
-                the cervix. Please ensure that the image specifically represents
-                a colposcopy image. Do not upload any other type of image, as
-                this model is specifically designed for cervical cancer
-                prediction using colposcopy images
+                <span className={classes.uploads}>Upload Image</span>
+                <input type="file" onChange={(e) => handleUpload(e)} hidden />
+              </Button>
+            )}
+            <div>
+              <div className={classes.info}>
+                <div>
+                  <InfoIcon fontSize="small" />
+                </div>
+                <div>
+                  Please upload an appropriate image that provides a clear view
+                  of the cervix. Please ensure that the image specifically
+                  represents a colposcopy image. Do not upload any other type of
+                  image, as this model is specifically designed for cervical
+                  cancer prediction using colposcopy images
+                </div>
               </div>
             </div>
           </div>
@@ -176,7 +175,7 @@ const HeroSection = () => {
       </div>
       {/* {loader && <CircularProgress />} */}
       {/* </Container> */}
-      <div className={classes.notes}></div>
+      {/* <div className={classes.notes}></div> */}
     </div>
   );
 };
