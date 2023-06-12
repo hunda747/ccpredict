@@ -38,7 +38,7 @@ const ResultPage = () => {
   const router = useRouter();
   const { type, image, type1, type2, type3 } = router.query;
   console.log("data", type);
-  console.log('1', type1);
+  console.log("1", type1);
   // console.log('data', image);
   // const classes = useStyles();
   const [probabilities, setProbabilities] = useState([]);
@@ -67,8 +67,14 @@ const ResultPage = () => {
   };
 
   const pers = (num) => {
-    return Math.round(num*100)
-  }
+    return Math.round(num * 100);
+  };
+
+  const pt = 0.60;
+  // console.log(type1);
+  // console.log(type2);
+  // console.log(type3);
+  // console.log('ans',  parseInt(type1)  >= pt || parseInt(type2) >= pt || parseInt(type3) >= pt);
 
   return (
     <>
@@ -77,10 +83,11 @@ const ResultPage = () => {
         <Container maxWidth="lg">
           <div className={classes.all}>
             <div className={classes.titleF}>
-            {/* <Typography variant="h4" component="h4" align="center">
+              {/* <Typography variant="h4" component="h4" align="center">
                 Result 
               </Typography> */}
-              cervical <span className={classes.colring}>cancer</span>  likelihood 
+              cervical <span className={classes.colring}>cancer</span>{" "}
+              likelihood
             </div>
             <div className={classes.content}>
               <div className={classes.imageContainer}>
@@ -95,42 +102,57 @@ const ResultPage = () => {
                   className={classes.imageLeft}
                 /> */}
               </div>
-              <div className={classes.resultContainer}>
-                <Typography variant="h6" gutterBottom>
-                Cancer type :
-                </Typography>
+              {type1 >= pt || type2 >= pt || type3 >= pt ? (
+                
+                <div className={classes.resultContainer}>
+                  <Typography variant="h6" gutterBottom>
+                    Cancer type :
+                  </Typography>
+                  <Typography variant="h4" gutterBottom>
+                    <span className={classes.textTag}>Type {type}</span>
+                    <span className={classes.persentage}>
+                      {type === "1"
+                        ? pers(type1)
+                        : type === "2"
+                        ? pers(type2)
+                        : pers(type3)}
+                      % probability
+                      {/* 91% probability */}
+                    </span>
+                  </Typography>
+                  <Typography variant="h6" gutterBottom>
+                    <span className={classes.colring}>Characteristics</span> :
+                  </Typography>
+                  <ul className={classes.checklist}>
+                    {type === "1" &&
+                      type1notes.map((characteristic, index) => (
+                        <li key={index} className={classes.bulletPoint}>
+                          {characteristic}
+                        </li>
+                      ))}
+                    {type === "2" &&
+                      type2notes.map((characteristic, index) => (
+                        <li key={index} className={classes.bulletPoint}>
+                          {characteristic}
+                        </li>
+                      ))}
+                    {type === "3" &&
+                      type3notes.map((characteristic, index) => (
+                        <li key={index} className={classes.bulletPoint}>
+                          {characteristic}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className={classes.resultContainer}>
+
                 <Typography variant="h4" gutterBottom>
-                  <span className={classes.textTag}>Type {type}</span>
-                   <span className={classes.persentage}>
-                    {type === '1' ? pers(type1) : type === '2' ? 
-                    pers(type2) : pers(type3)}% probability
-                   {/* 91% probability */}
-                   </span>
+                  <span className={classes.textTagFree}>Cancer Free</span>
+                  
                 </Typography>
-                <Typography variant="h6" gutterBottom>
-                  <span className={classes.colring}>Characteristics</span> :
-                </Typography>
-                <ul className={classes.checklist}>
-                  {type === "1" &&
-                    type1notes.map((characteristic, index) => (
-                      <li key={index} className={classes.bulletPoint}>
-                        {characteristic}
-                      </li>
-                    ))}
-                  {type === "2" &&
-                    type2notes.map((characteristic, index) => (
-                      <li key={index} className={classes.bulletPoint}>
-                        {characteristic}
-                      </li>
-                    ))}
-                  {type === "3" &&
-                    type3notes.map((characteristic, index) => (
-                      <li key={index} className={classes.bulletPoint}>
-                        {characteristic}
-                      </li>
-                    ))}
-                </ul>
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </Container>
