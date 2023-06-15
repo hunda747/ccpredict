@@ -33,4 +33,10 @@
   display: flex;
   justify-content: right;
   gap: 2rem;
+  text-decoration: none;
+}
+
+.menu a{
+  text-decoration: none;
+
 }
